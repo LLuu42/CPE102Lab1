@@ -35,7 +35,6 @@ def can_move_vertical(ball, height):
    return ((ball.dy > 0 and ball.y + ball.radius + ball.dy < height) or
          (ball.dy < 0 and ball.y - ball.radius + ball.dy >= 0))
 
-"""
 
 def move_ball(ball, width, height, balls):
    if not ball.horizontal_movement(width):
@@ -46,10 +45,11 @@ def move_ball(ball, width, height, balls):
    ball.y += ball.dy
 
 
+
 def move(balls, width, height):
    for ball in balls:
-      move_ball(ball, width, height, balls)
-
+      ball.ball_movement(width, height, balls)
+"""
 
 def event_loop(screen, balls, width, height):
    while True:
@@ -63,8 +63,10 @@ def event_loop(screen, balls, width, height):
 
       draw(screen, balls)
       pygame.display.flip()
-
-      move(balls, width, height)
+      
+      for ball in balls:
+         ball.ball_movement(width, height, balls)
+#      balls.movement(width, height)
 
 
 #function to start up the main drawing

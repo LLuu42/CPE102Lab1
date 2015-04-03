@@ -28,8 +28,21 @@ class Ball:
       return ( (self.dy > 0 and self.y + self.radius + self.dy < height) or
                (self.dy < 0 and self.y - self.radius + self.dy >= 0) )
 
-         
+   def ball_movement(self, width, height, balls):
+      if not self.horizontal_movement(width):
+         self.dx *= -1
+      if not self.vertical_movement(height):
+         self.dy *= -1
+      self.x += self.dx
+      self.y += self.dy
+
 """
+   def movement (self, width, height):
+      for ball in self:
+         ball.ball_movement(width, height, self)
+      
+         
+
 def draw_ball(ball, screen):
    pygame.draw.ellipse(screen, ball.color,
       pygame.Rect(ball.x - ball.radius, ball.y - ball.radius,
