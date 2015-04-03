@@ -25,7 +25,7 @@ def draw(screen, balls) :
    for ball in balls:
       ball.draw_ball(screen)
 
-
+"""
 def can_move_horizontal(ball, width):
    return ((ball.dx > 0 and ball.x + ball.radius + ball.dx < width) or
          (ball.dx < 0 and ball.x - ball.radius + ball.dx >= 0))
@@ -35,11 +35,12 @@ def can_move_vertical(ball, height):
    return ((ball.dy > 0 and ball.y + ball.radius + ball.dy < height) or
          (ball.dy < 0 and ball.y - ball.radius + ball.dy >= 0))
 
+"""
 
 def move_ball(ball, width, height, balls):
-   if not can_move_horizontal(ball, width):
+   if not ball.horizontal_movement(width):
       ball.dx *= -1
-   if not can_move_vertical(ball, height):
+   if not ball.vertical_movement(height):
       ball.dy *= -1
    ball.x += ball.dx
    ball.y += ball.dy
